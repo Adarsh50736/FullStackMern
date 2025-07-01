@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import AdminPanel from './pages/AdminPanel';
-import ContactForm from './components/contactForm';
+import ContactForm from './components/ContactForm';
 
 function App() {
   return (
