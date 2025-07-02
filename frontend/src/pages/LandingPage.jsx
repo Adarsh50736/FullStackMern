@@ -1,5 +1,5 @@
 import ClientList from "../components/ClientList";
-import ContactForm from "../components/contactForm";
+import ContactForm from "../components/ConForm";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/NewsLetter";
 import ProjectList from "../components/ProjectList";

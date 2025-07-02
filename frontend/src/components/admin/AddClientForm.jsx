@@ -33,11 +33,11 @@ const AddClientForm = () => {
 
     try {
       await axios.post(`${API_BASE_URL}/clients`, data);
-      alert('✅ Client added successfully!');
+      alert(' Client added successfully!');
       setFormData({ name: '', designation: '', description: '', image: null });
       setPreview(null);
     } catch (err) {
-      alert('❌ Failed to add client.');
+      alert(' Failed to add client.');
       console.error(err);
     }
   };

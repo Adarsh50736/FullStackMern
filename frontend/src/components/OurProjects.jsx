@@ -18,7 +18,7 @@ const OurProjects = () => {
         {projects.map((project) => (
           <div key={project._id} className="bg-gray-50 rounded shadow hover:shadow-lg transition">
             <img
-              src={`http://localhost:5000/${project.image}`}
+              src={`https://fullstackmern-g5bb.onrender.com/${project.image}`}
               alt={project.name}
               className="w-full h-48 object-cover rounded-t"
             />

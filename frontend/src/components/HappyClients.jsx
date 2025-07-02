@@ -18,7 +18,7 @@ const HappyClients = () => {
         {clients.map((client) => (
           <div key={client._id} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
             <img
-              src={`http://localhost:5000/${client.image}`}
+              src={`https://fullstackmern-g5bb.onrender.com/${client.image}`}
               alt={client.name}
               className="w-20 h-20 object-cover rounded-full mx-auto mb-4"
             />

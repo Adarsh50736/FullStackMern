@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { API_BASE_URL } from '../config';
 
-const ContactForm = () => {
+const ConForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     emailAddress: '',
@@ -10,8 +10,10 @@ const ContactForm = () => {
     city: ''
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
@@ -19,9 +21,10 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await axios.post(`${API_BASE_URL}/contacts`, formData);
-      alert('✅ Contact form submitted!');
+      alert('Contact form submitted!');
       setFormData({
         fullName: '',
         emailAddress: '',
@@ -30,12 +33,14 @@ const ContactForm = () => {
       });
     } catch (err) {
       console.error('Error:', err);
-      alert('❌ Failed to submit. Please try again.');
+      alert('Failed to submit. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <section className="bg-blue-400 h-170 py-20 px-4 text-center">
+    <section className="bg-blue-400 min-h-screen py-20 px-4 text-center">
       <div className="max-w-xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Contact Us</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -78,9 +83,10 @@ const ContactForm = () => {
 
           <button
             type="submit"
-            className="w-full py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition"
+            disabled={loading}
+            className="w-full py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition disabled:opacity-50"
           >
-            Submit
+            {loading ? 'Submitting...' : 'Submit'}
           </button>
         </form>
       </div>
@@ -88,4 +94,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ConForm;

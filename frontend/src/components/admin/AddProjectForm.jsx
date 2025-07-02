@@ -30,11 +30,11 @@ const AddProjectForm = () => {
 
     try {
       await axios.post(`${API_BASE_URL}/projects`, data);
-      alert('✅ Project added successfully!');
+      alert(' Project added successfully!');
       setFormData({ name: '', description: '', image: null });
       setPreview(null);
     } catch (err) {
-      alert('❌ Failed to add project.');
+      alert(' Failed to add project.');
       console.error(err);
     }
   };

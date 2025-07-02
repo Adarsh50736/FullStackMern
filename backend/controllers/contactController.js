@@ -1,7 +1,7 @@
 const Contact = require('../models/contact');
 
 const submitContactForm = async (req, res) => {
-     console.log("🔥 Contact route hit");
+     console.log(" Contact route hit");
   try {
     const { fullName, emailAddress, mobileNumber, city } = req.body;
 
